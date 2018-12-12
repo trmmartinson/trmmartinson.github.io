@@ -1,0 +1,59 @@
+
+body {
+    background-image:  url("light-grey-terrazzo.png");
+}
+hr {
+    background-color: 10 px solid orange;
+    color: red;
+}
+
+.whiteteal {
+    background-color: teal;
+    color: white;
+}
+.tealwhite {
+    background-color: white;
+    color: teal;
+
+}
+.contact {
+    width: 150px;
+}
+.mainbox {
+    background-color:white;
+    height: 420px;
+    padding: 10px;
+    overflow: hidden;
+}
+.mypic {
+    padding: 30px;
+    padding-top: 0px;
+    float: left;
+}
+.portpic
+{
+    padding: 10px;
+}
+.floatme {
+    float: left;
+}
+.regp {
+    padding-left: 30px;
+}
+.sidexside {
+    display: inline-block;
+}
+
+.footer {
+    background-color:grey;
+    text-align: center;
+    height: 50px;
+    top-margin: 15px;
+}
+.skinny {
+    height: 8px;
+}
+h6 {
+    color: teal;
+    text-align: center;
+}

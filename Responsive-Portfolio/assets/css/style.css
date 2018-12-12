@@ -219,10 +219,14 @@ input[type=submit] {
 #masthead {
 	overflow: hidden;
 }
-  .work {
+.work {
     width: 100%;
     text-align:center;
-  }
+    }
+
+.work img {
+	height: auto;
+}
 
 nav {
     float: none;

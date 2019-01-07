@@ -14,6 +14,7 @@ var currentEnimy = "";  // enimy you are current enimy
 var you = "";
 var theme = $('#theme')[0];
 var numDefeated = 0;
+var playerWon = false;
 
 class character {
     //hit points, attackPower and counterattack power
@@ -114,6 +115,7 @@ $("#fight").click(function () {
         $("#fight").hide(2000);
         $("#doreload").show(); // alow user to play again by being able to press button
         inBattle = false;
+        playerWon = false;
     }
     else {
         $('#hp' + you.idname + 'battle' + you.idname).html(you.hitPoints);
@@ -129,6 +131,7 @@ $("#fight").click(function () {
         }
         else {
             $htmlString = $htmlString + "<br>You defeated " + currentEnimy.name + "!  Choose a new enimy.";
+            playerWon = true;
         }
     }
     else {
@@ -140,7 +143,8 @@ $("#fight").click(function () {
             $("#battle" + currentEnimy.idname).hide(2000);
             $("#fight").hide();
         }
-        $(".lineup").show(); // show remaining (if any) enimies 
+        if(playerWon)
+            $(".lineup").show(); // show remaining (if any) enimies 
     }
     you.incr_attackPower();
     $("#instructions").html($htmlString);

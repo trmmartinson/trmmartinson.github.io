@@ -1,7 +1,7 @@
 
 /*
 starwars.js
-2:35 am version
+ 3:00 pm verson
 
 */
 
@@ -31,10 +31,10 @@ class character {
     }
 }
 // initialize global characters
-foe["jarjar"] = new character("jarjar", "Jar Jar",          70, 45, 45, "jarjar");
-foe["handssolo"] = new character("handssolo", "Hands Solo", 75, 30, 55, "handssolo");
-foe["r2d2"] = new character("r2d2", "R2D2",                 80, 35, 65, "r2d2");
-foe["c3po"] = new character("c3po", "C3PO",                 95, 45, 75, "c3po");
+foe["jarjar"] = new character("jarjar", "Jar Jar",          105, 35, 40, "jarjar");
+foe["handssolo"] = new character("handssolo", "Hands Solo", 95, 30, 41, "handssolo");
+foe["r2d2"] = new character("r2d2", "R2D2",                 100, 20, 35, "r2d2");
+foe["c3po"] = new character("c3po", "C3PO",                 130, 35, 55, "c3po");
 
 
 function $make_player(thekey, sectionid) // key is for foes, sectionid = html id
@@ -98,7 +98,6 @@ $(".charbtn").click(function (event) {
 // battle button, only applicable when visable
 //// play until either character "dies", then make you and the lineup visible again
 $("#fight").click(function () {
-    you.incr_attackPower();
     $htmlString = "<h1>" + you.name + " attacks " + currentEnimy.name + " for " + you.attackPower + " damage; <br> " +
         currentEnimy.name + " counterattacks " + " for " + currentEnimy.counterattackPower + " damage points";
 
@@ -109,8 +108,9 @@ $("#fight").click(function () {
     if (you.hitPoints < 1) {
         $("#instructions").text("You are dead!");
         $htmlString = "You were defeated by " + currentEnimy.name;
-        $('#hp' + you.idname + 'battle' + you.idname).html("DEAD");
-        $("#hp" + you.idname + 'battle' + you.idname).siblings().hide(2000); // hide the dead character
+        $('#hp' + you.idname + 'battle' + you.idname).html("you are DEAD");
+        $("#hp" + you.idname + 'battle' + you.idname).hide(2000); // hide the dead character
+        $("#hp" + you.idname + 'battle' + you.idname).siblings().hide(); // hide the dead character
         $("#fight").hide(2000);
         $("#doreload").show(); // alow user to play again by being able to press button
         inBattle = false;
@@ -142,6 +142,7 @@ $("#fight").click(function () {
         }
         $(".lineup").show(); // show remaining (if any) enimies 
     }
+    you.incr_attackPower();
     $("#instructions").html($htmlString);
 });
 

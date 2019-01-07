@@ -1,7 +1,7 @@
 
 /*
 starwars.js
-
+2:35 am version
 
 */
 
@@ -27,16 +27,14 @@ class character {
         this.image = "assets/images/" + image + ".jpg";
     }
     incr_attackPower() {
-        console.log("b4" + this.attackPower);
         this.attackPower += this.baseAttackPower;
-        console.log("after" + this.attackPower);
     }
 }
 // initialize global characters
-foe["jarjar"] = new character("jarjar", "Jar Jar", 70, 40, 45, "jarjar");
-foe["handssolo"] = new character("handssolo", "Hands Solo", 80, 35, 55, "handssolo");
-foe["r2d2"] = new character("r2d2", "R2D2", 90, 25, 65, "r2d2");
-foe["c3po"] = new character("c3po", "C3PO", 100, 20, 75, "c3po");
+foe["jarjar"] = new character("jarjar", "Jar Jar",          70, 45, 45, "jarjar");
+foe["handssolo"] = new character("handssolo", "Hands Solo", 75, 30, 55, "handssolo");
+foe["r2d2"] = new character("r2d2", "R2D2",                 80, 35, 65, "r2d2");
+foe["c3po"] = new character("c3po", "C3PO",                 95, 45, 75, "c3po");
 
 
 function $make_player(thekey, sectionid) // key is for foes, sectionid = html id
@@ -65,9 +63,9 @@ $("#doreload").hide();
 $(".charbtn").click(function (event) {
     theme.play();
     selectedChar = $(this).attr("id");
-    if (you == "") {   //this block gets fired when a new game is created
+    if (you == "") {   
         $(this).hide();
-        $(this).siblings().hide(); // cool, though I could have just removed the div!
+        $(this).siblings().hide(); 
         $htmlString = $make_player(selectedChar, "battle" + selectedChar); // was key
         $("#you").append($htmlString);
         you = foe[selectedChar];
@@ -82,7 +80,6 @@ $(".charbtn").click(function (event) {
         currentEnimy = foe[selectedChar];
 
     }
-    //topline instructions
     if (currentEnimy == "")
         $htmlString = "You are:" + you.name + ", Choose an enimy!";
     else if (inBattle) {
@@ -113,10 +110,9 @@ $("#fight").click(function () {
         $("#instructions").text("You are dead!");
         $htmlString = "You were defeated by " + currentEnimy.name;
         $('#hp' + you.idname + 'battle' + you.idname).html("DEAD");
-        $("#hp" + you.idname + 'battle' + you.idname).siblings().hide(); // hide the dead character
-        //$("#hp" + you.idname + 'battle' + you.idname).hide(2000);
+        $("#hp" + you.idname + 'battle' + you.idname).siblings().hide(2000); // hide the dead character
         $("#fight").hide(2000);
-        $("#doreload").show(); // alow user to play again
+        $("#doreload").show(); // alow user to play again by being able to press button
         inBattle = false;
     }
     else {
@@ -146,7 +142,6 @@ $("#fight").click(function () {
         }
         $(".lineup").show(); // show remaining (if any) enimies 
     }
-    //alert($htmlString);
     $("#instructions").html($htmlString);
 });
 

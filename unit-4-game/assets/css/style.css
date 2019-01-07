@@ -1,0 +1,17 @@
+body {
+    background-color : black; 
+}
+.charbtn {
+    padding: 20px;
+    width: 280px;
+    height: 195px;
+}
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .gametext {
+      color: red;
+  }
